@@ -1,0 +1,19 @@
+<html>
+<body>
+<div>
+  Closing in <div id="countdown"></div>...
+</div>
+<script>
+  let i = 3;
+  const countdown = document.getElementById('countdown');
+  const interval = setInterval(() => {
+    countdown.innerText = i;
+    i--;
+    if (i < 0) {
+      clearInterval(interval);
+      window.close();
+    }
+  }, 1000);
+</script>
+</body>
+</html>
