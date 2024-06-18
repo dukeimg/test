@@ -12,7 +12,7 @@
     }
 
     const button = document.getElementById('button');
-    button.onclick((e) => {
+    button.addEventListener("click", (e) => {
         e.preventDefault();
         console.log('Is trusted', e.isTrusted);
         popupWindow('https://dukeimg.github.io/test/erf/popup.html', 'popup', window, 200, 200);
