@@ -1,19 +1,22 @@
 <html>
 <meta name="viewport" content="initial-scale=1">
-<script>
-  function popupWindow(url, windowName, win, w, h) {
-    const y = win.outerHeight / 2 + win.screenY - ( h / 2);
-    const x = win.outerWidth / 2 + win.screenX - ( w / 2);
-    return win.open(url, windowName, `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${w}, height=${h}, top=${y}, left=${x}`);
-  }
-
-  function doStuff() {
-    popupWindow('https://dukeimg.github.io/test/erf/popup.html', 'Submit Review', window, 500, 500);
-  }
-</script>
 <body>
-<button onClick="doStuff()">
+<button id="button">
     Click me for a trusted action
 </button>
+<script>
+    function popupWindow(url, windowName, win, w, h) {
+        const y = win.outerHeight / 2 + win.screenY - ( h / 2);
+        const x = win.outerWidth / 2 + win.screenX - ( w / 2);
+        return win.open(url, windowName, `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${w}, height=${h}, top=${y}, left=${x}`);
+    }
+
+    const button = document.getElementById('button');
+    button.onclick((e) => {
+        e.preventDefault();
+        console.log('Is trusted', e.isTrusted);
+        popupWindow('https://dukeimg.github.io/test/erf/popup.html', 'popup', window, 200, 200);
+    })
+</script>
 </body>
 </html>
